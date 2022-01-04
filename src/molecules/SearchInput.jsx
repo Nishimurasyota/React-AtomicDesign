@@ -1,11 +1,24 @@
+import styled from "styled-components";
+
 import { PrimaryButton } from "../components/atoms/button/PrimaryButton";
 import { Input } from "../components/atoms/input/Input";
 
 export const SearchiInput = () => {
   return (
-    <div>
+    <SContainer>
       <Input placeholder="検索条件を入力" />
-      <PrimaryButton>検索</PrimaryButton>
-    </div>
+      <SButtonWrapper>
+        <PrimaryButton>検索</PrimaryButton>
+      </SButtonWrapper>
+    </SContainer>
   );
 };
+
+const SContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const SButtonWrapper = styled.div`
+  padding-left: 8px;
+`;
