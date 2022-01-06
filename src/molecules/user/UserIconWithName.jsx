@@ -4,7 +4,7 @@ export const UserIconWithName = (props) => {
   const { image, name } = props;
   return (
     <SIcon>
-      <SImage height={160} src={image} alt={name} />
+      <SImage height={130} height={100} src={image} alt={name} />
       <SName>{name}</SName>
     </SIcon>
   );
