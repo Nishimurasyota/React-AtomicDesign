@@ -1,16 +1,24 @@
 import styled from "styled-components";
 import { SecondaryButton } from "../atoms/button/SecondaryButton";
 import { useHistory } from "react-router-dom";
+import { UserContext } from "../../providers/UserProvider";
+import { useSetRecoilState } from "recoil";
+import { UserState } from "../../store/UserState";
+//↑関数のみ参照する
 
 export const Top = () => {
+  //  const { setUserInfo } = useContext(UserContext);
+  const setUserInfo = useSetRecoilState(UserState);
   const history = useHistory();
 
   const onClickAdmin = () => {
-    history.push({ pathname: "/users", state: { isAdmin: true } });
+    setUserInfo({ isAdmin: true });
+    history.push("/users");
   };
 
   const onClickUser = () => {
-    history.push({ pathname: "/users", state: { isAdmin: false } });
+    setUserInfo({ isAdmin: false });
+    history.push("/users");
   };
 
   return (
